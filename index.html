@@ -90,10 +90,27 @@ footer{letter-spacing:.02em}
 .access-flow b{color:var(--blue)}
 .access-bridge p{margin:0;color:var(--muted)}
 @media(max-width:560px){.access-bridge{padding:21px;border-radius:16px}.access-flow{gap:7px}.access-flow span{font-size:12px}}
+
+.airport-walkthrough{background:linear-gradient(180deg,rgba(233,239,238,.45),rgba(255,255,255,0))}
+.walk-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.walk-step{display:flex;gap:18px;padding:24px;background:var(--paper2);border:1px solid var(--line);border-radius:18px;box-shadow:0 14px 32px rgba(36,52,58,.06)}
+.walk-num{flex:0 0 44px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#e9efee;color:var(--blue);font-weight:800;font-size:13px}
+.walk-body h3{margin:4px 0 8px;font-size:20px}
+.walk-body p{margin:0;color:var(--muted);line-height:1.75}
+.walk-highlight{background:#e9efee;border-color:rgba(72,103,119,.24)}
+.direct-route-box{margin-top:20px;padding:26px;border:1px solid rgba(72,103,119,.18);border-radius:18px;background:#fff}
+.direct-route-box h3{margin:5px 0 9px;font-size:23px}
+.direct-route-box p{color:var(--muted);margin:0 0 16px}
+.direct-route-line{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.direct-route-line span{padding:9px 13px;border-radius:999px;background:#eef3f2;border:1px solid var(--line);font-weight:700;font-size:13px}
+.direct-route-line b{color:var(--blue)}
+.direct-route-box small{color:var(--muted)}
+.walk-tip{margin-top:16px;padding:18px 20px;border-left:3px solid var(--blue);background:rgba(233,239,238,.55);line-height:1.75}
+@media(max-width:760px){.walk-grid{grid-template-columns:1fr}.walk-step{padding:20px}.direct-route-box{padding:21px}}
 </style>
 </head>
 <body>
-<nav class="topbar"><div class="wrap"><a class="logo" href="#top">HAKUBA 26/27</a><a href="#plans">方案</a><a href="#included">包含</a><a href="#access">交通</a><a href="#prepare">準備</a><a href="#life">白馬生活</a><a href="#faq">FAQ</a></div></nav>
+<nav class="topbar"><div class="wrap"><a class="logo" href="#top">HAKUBA 26/27</a><a href="#plans">方案</a><a href="#included">包含</a><a href="#access">交通</a><a href="#airport-walkthrough">下飛機照著走</a><a href="#prepare">準備</a><a href="#life">白馬生活</a><a href="#faq">FAQ</a></div></nav>
 
 <header class="hero" id="top"><div class="wrap"><div class="hero-card"><div class="hero-copy"><div class="kicker">Hakuba · Nagano · Japan</div><h1>去白馬，<br>把滑雪變簡單。</h1><p>不是跟團趕行程，而是把住宿、雪具、接駁與課程整理好，留下真正屬於你的白馬時間。</p><div class="actions"><a class="btn dark" href="#plans">看方案</a><button class="btn" onclick="openReg()">立即報名</button></div></div></div></div></header>
 
@@ -230,6 +247,89 @@ footer{letter-spacing:.02em}
       <p>住宿端若有車站／巴士站接送，可於訂房或出發前確認；套餐的每日接駁主要處理住宿與當日上課雪場之間的移動。白馬各雪場另有 Hakuba Valley／各雪場接駁網路可使用。</p>
     </div>
     <div class="plan-footnote">26/27 雪季的機場直達接駁與巴士班次尚需依各營運單位正式公告為準；網站先提供交通邏輯，不把可能變動的時間寫死。</div>
+  </div>
+</section>
+
+
+<section class="section airport-walkthrough" id="airport-walkthrough">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">FIRST TIME GUIDE</div><h2>第一次去白馬？下飛機照著走</h2></div>
+      <p class="lead">不用一次搞懂所有日本交通。照著這條線走，就能從機場一路到白馬住宿。</p>
+    </div>
+
+    <div class="walk-grid">
+      <article class="walk-step">
+        <div class="walk-num">01</div>
+        <div class="walk-body">
+          <div class="tiny">LAND</div>
+          <h3>成田／羽田下飛機</h3>
+          <p>入境、領行李、準備好 Suica／信用卡與網路。雪具行李較多的話，移動時間記得抓寬一點。</p>
+        </div>
+      </article>
+
+      <article class="walk-step">
+        <div class="walk-num">02</div>
+        <div class="walk-body">
+          <div class="tiny">TO TOKYO</div>
+          <h3>先進東京</h3>
+          <p>從機場搭鐵路或巴士進入東京，目標是接上前往長野方向的北陸新幹線。</p>
+        </div>
+      </article>
+
+      <article class="walk-step">
+        <div class="walk-num">03</div>
+        <div class="walk-body">
+          <div class="tiny">SHINKANSEN</div>
+          <h3>東京 → 長野</h3>
+          <p>搭北陸新幹線到長野站。這是從東京前往白馬最常見、也最容易理解的路線之一。</p>
+        </div>
+      </article>
+
+      <article class="walk-step">
+        <div class="walk-num">04</div>
+        <div class="walk-body">
+          <div class="tiny">BUS</div>
+          <h3>長野 → 白馬</h3>
+          <p>在長野站轉往白馬方向的巴士，抵達白馬站、八方巴士總站或當天安排的主要下車點。</p>
+        </div>
+      </article>
+
+      <article class="walk-step">
+        <div class="walk-num">05</div>
+        <div class="walk-body">
+          <div class="tiny">CHECK-IN</div>
+          <h3>抵達白馬，前往住宿</h3>
+          <p>依住宿位置安排步行、住宿接送或當地交通。需要的話，出發前先確認住宿端可接送的地點與時間。</p>
+        </div>
+      </article>
+
+      <article class="walk-step walk-highlight">
+        <div class="walk-num">06</div>
+        <div class="walk-body">
+          <div class="tiny">SKI DAYS</div>
+          <h3>接下來交給白馬行程</h3>
+          <p>入住後準備裝備。滑雪日依當天雪場安排，住宿 ↔ 雪場的每日接駁會跟著課程與雪場規劃。</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="direct-route-box">
+      <div>
+        <div class="tiny">LESS TRANSFERS</div>
+        <h3>不想轉車？雪季可查機場直達白馬</h3>
+        <p>雪季通常會有羽田／成田等主要機場往白馬的直達接駁或共乘服務。這條最適合行李多、第一次到日本滑雪、或不想拖雪具轉車的人。</p>
+      </div>
+      <div class="direct-route-line">
+        <span>機場</span><b>→</b><span>直達接駁</span><b>→</b><span>白馬</span>
+      </div>
+      <small>實際營運日期、班次與票價依 26/27 雪季各業者公告為準。</small>
+    </div>
+
+    <div class="walk-tip">
+      <b>我會怎麼選：</b>
+      第一次去、想最穩定就走「機場 → 東京 → 長野 → 白馬」；如果雪具很多、懶得換車，就優先查雪季機場直達接駁。
+    </div>
   </div>
 </section>
 
