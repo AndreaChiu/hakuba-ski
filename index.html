@@ -82,10 +82,18 @@ footer{letter-spacing:.02em}
   .mini-day{grid-template-columns:62px 1fr}
 }
 
+
+.access-bridge{margin-top:24px;padding:28px;background:#e9efee;border:1px solid rgba(72,103,119,.16);border-radius:22px}
+.access-bridge h3{font-size:28px;margin:4px 0 18px}
+.access-flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 18px}
+.access-flow span{background:var(--paper2);border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700}
+.access-flow b{color:var(--blue)}
+.access-bridge p{margin:0;color:var(--muted)}
+@media(max-width:560px){.access-bridge{padding:21px;border-radius:16px}.access-flow{gap:7px}.access-flow span{font-size:12px}}
 </style>
 </head>
 <body>
-<nav class="topbar"><div class="wrap"><a class="logo" href="#top">HAKUBA 26/27</a><a href="#plans">方案</a><a href="#included">包含</a><a href="#prepare">準備</a><a href="#life">白馬生活</a><a href="#faq">FAQ</a></div></nav>
+<nav class="topbar"><div class="wrap"><a class="logo" href="#top">HAKUBA 26/27</a><a href="#plans">方案</a><a href="#included">包含</a><a href="#access">交通</a><a href="#prepare">準備</a><a href="#life">白馬生活</a><a href="#faq">FAQ</a></div></nav>
 
 <header class="hero" id="top"><div class="wrap"><div class="hero-card"><div class="hero-copy"><div class="kicker">Hakuba · Nagano · Japan</div><h1>去白馬，<br>把滑雪變簡單。</h1><p>不是跟團趕行程，而是把住宿、雪具、接駁與課程整理好，留下真正屬於你的白馬時間。</p><div class="actions"><a class="btn dark" href="#plans">看方案</a><button class="btn" onclick="openReg()">立即報名</button></div></div></div></div></header>
 
@@ -188,6 +196,42 @@ footer{letter-spacing:.02em}
 </section>
 
 <section class="section" id="included"><div class="wrap"><div class="section-head"><div><div class="kicker">Trip notes / 02</div><h2>大件的，我們先幫你處理。</h2></div><p class="lead">第一次滑雪最麻煩的通常不是滑，而是不知道雪具、雪票、住宿和接駁要怎麼串起來。</p></div><div class="inout"><div class="listcard"><h3>套餐包含</h3><div class="checklist"><div class="checkrow"><span class="box on">✓</span><span>滑雪教練指導</span></div><div class="checkrow"><span class="box on">✓</span><span>每日雪場接駁</span></div><div class="checkrow"><span class="box on">✓</span><span>雪板、雪靴、雪衣、雪褲</span></div><div class="checkrow"><span class="box on">✓</span><span>雪鏡、安全帽、手套租借</span></div><div class="checkrow"><span class="box on">✓</span><span>一般白天滑雪纜車票</span></div><div class="checkrow"><span class="box on">✓</span><span>白馬住宿</span></div><div class="checkrow"><span class="box on">✓</span><span>滑完雪後溫泉入浴</span></div></div></div><div class="listcard"><h3>自己保留彈性的部分</h3><div class="checklist"><div class="checkrow"><span class="box">×</span><span><b class="no">機票</b>與日本境內長途交通</span></div><div class="checkrow"><span class="box">×</span><span>三餐與個人消費</span></div><div class="checkrow"><span class="box">×</span><span>旅遊／滑雪相關保險</span></div><div class="checkrow"><span class="box">×</span><span>夜滑雪票</span></div><div class="checkrow"><span class="box">×</span><span>面罩、內層衣物、雪襪、防摔用品等貼身用品</span></div></div><div class="memo">旺季住宿若合作旅宿客滿，會在確認時說明替代住宿或差額安排。</div></div></div></div></section>
+
+
+<section class="section" id="access">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">Trip notes / 03</div><h2>從機場到白馬，怎麼走？</h2></div>
+      <p class="lead">先把「到白馬」和「到了白馬之後」分開看。長途交通自行安排；進到白馬後，套餐內的每日雪場接駁再接手。</p>
+    </div>
+    <div class="plan-float-grid">
+      <article class="plan-float">
+        <div class="tiny">ROUTE A</div><h3>成田／羽田 → 東京 → 長野 → 白馬</h3>
+        <p class="plan-desc">班次選擇多、最好理解的走法。</p>
+        <div class="mini-timeline">
+          <div class="mini-day"><span>01</span><div><b>機場 → 東京</b><small>搭機場鐵路或巴士進東京。</small></div></div>
+          <div class="mini-day"><span>02</span><div><b>東京 → 長野</b><small>搭北陸新幹線前往長野站。</small></div></div>
+          <div class="mini-day"><span>03</span><div><b>長野 → 白馬</b><small>再轉往白馬方向的巴士，抵達白馬站／八方巴士總站等主要下車點。</small></div></div>
+        </div>
+      </article>
+      <article class="plan-float">
+        <div class="tiny">ROUTE B · WINTER</div><h3>機場 → 白馬直達接駁</h3>
+        <p class="plan-desc">雪季可能有機場直達白馬的巴士或共乘接駁，適合不想拖行李一直轉車的人。</p>
+        <div class="mini-timeline">
+          <div class="mini-day"><span>01</span><div><b>成田／羽田機場</b><small>依當季營運業者與預約班次集合。</small></div></div>
+          <div class="mini-day"><span>02</span><div><b>直達白馬</b><small>可省去東京與長野轉乘；雪季班次、票價與營運日期每年可能不同。</small></div></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="access-bridge">
+      <div><span class="tiny">ARRIVE HAKUBA</span><h3>到了白馬之後，就簡單了。</h3></div>
+      <div class="access-flow"><span>白馬站／八方巴士總站</span><b>→</b><span>住宿</span><b>→</b><span>每日雪場接駁</span><b>→</b><span>滑雪</span></div>
+      <p>住宿端若有車站／巴士站接送，可於訂房或出發前確認；套餐的每日接駁主要處理住宿與當日上課雪場之間的移動。白馬各雪場另有 Hakuba Valley／各雪場接駁網路可使用。</p>
+    </div>
+    <div class="plan-footnote">26/27 雪季的機場直達接駁與巴士班次尚需依各營運單位正式公告為準；網站先提供交通邏輯，不把可能變動的時間寫死。</div>
+  </div>
+</section>
 
 <section class="section" id="prepare"><div class="wrap"><div class="section-head"><div><div class="kicker">Trip notes / 03</div><h2>出發前｜我的滑雪準備清單。</h2></div><p class="lead">直接把它當成出發前的購物清單。買好或已經有的就勾起來，下次打開這個頁面會保留進度。</p></div>
 <div class="listcard" style="margin-bottom:16px"><div style="display:flex;justify-content:space-between;gap:16px;align-items:end"><div><div class="tiny">MY CHECKLIST</div><h3 style="margin:2px 0 0">已準備 <span id="doneCount">0</span> / <span id="totalCount">0</span></h3></div><button id="resetChecklist" style="border:0;background:transparent;text-decoration:underline;color:var(--muted);cursor:pointer">清除勾選</button></div><div style="height:9px;background:#e8e2d8;border-radius:99px;margin-top:16px;overflow:hidden"><div id="prepProgress" style="height:100%;width:0;background:var(--blue);border-radius:99px;transition:.25s"></div></div></div>
