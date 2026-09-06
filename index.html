@@ -153,6 +153,34 @@ footer{letter-spacing:.02em}
  .dinner-caption strong{font-size:25px}
  .lodge-note{padding:32px 24px}
 }
+
+.plan-selector{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 14px}
+.plan-choice{appearance:none;border:1px solid var(--line);background:#fff;padding:15px 12px;border-radius:16px;cursor:pointer;text-align:left;min-height:78px;transition:.2s ease;color:var(--ink)}
+.plan-choice span,.plan-choice small{display:block}
+.plan-choice span{font-size:17px;font-weight:850}
+.plan-choice small{font-size:12px;color:var(--muted);margin-top:4px}
+.plan-choice.active{background:#24333b;color:#fff;border-color:#24333b}
+.plan-choice.active small{color:rgba(255,255,255,.72)}
+.plan-detail-shell{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px}
+.plan-detail[hidden]{display:none!important}
+.plan-detail-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.plan-detail-head h3{font-size:30px;margin:5px 0 6px}
+.plan-detail-head p{margin:0;color:var(--muted)}
+.compact-days{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:24px}
+.compact-days div{padding:14px 12px;background:#f5f6f3;border-radius:13px;min-width:0}
+.compact-days b,.compact-days span{display:block}
+.compact-days b{font-size:11px;letter-spacing:.09em;color:var(--blue);margin-bottom:5px}
+.compact-days span{font-size:13px;line-height:1.5}
+@media(max-width:760px){
+  .plan-selector{grid-template-columns:repeat(2,1fr)}
+  .plan-choice{min-height:68px}
+  .plan-detail-shell{padding:20px}
+  .plan-detail-head{display:block}
+  .plan-price{text-align:left;margin-top:18px}
+  .compact-days{grid-template-columns:1fr}
+  .compact-days div{display:grid;grid-template-columns:72px 1fr;align-items:center;gap:8px}
+  .compact-days b{margin:0}
+}
 </style>
 </head>
 <body>
@@ -161,14 +189,15 @@ footer{letter-spacing:.02em}
 <header class="hero" id="top"><div class="wrap"><div class="hero-card"><div class="hero-copy"><div class="kicker">Hakuba · Nagano · Japan</div><h1>去白馬，<br>把滑雪變簡單。</h1><p>不是跟團趕行程，而是把住宿、雪具、接駁與課程整理好，留下真正屬於你的白馬時間。</p><div class="actions"><a class="btn dark" href="#plans">看方案</a><button class="btn" onclick="openReg()">立即報名</button></div></div></div></div></header>
 
 
+
 <section class="section" id="plans">
   <div class="wrap">
     <div class="section-head">
       <div>
         <div class="kicker">Trip notes / 01</div>
-        <h2>選一個適合你的白馬滑雪節奏。</h2>
+        <h2>選方案，不用一次看完全部。</h2>
       </div>
-      <p class="lead">每個方案都把每天會做什麼攤開給你看。先選同行人數，下面四個方案會一起更新成每人價格。</p>
+      <p class="lead">先選同行人數，再點你想看的天數。價格和行程只顯示一個方案，手機看也會乾淨很多。</p>
     </div>
 
     <div class="people-picker">
@@ -184,77 +213,76 @@ footer{letter-spacing:.02em}
       </div>
     </div>
 
-    <div class="plan-float-grid">
-      <article class="plan-float" data-plan-card="p1">
-        <div class="plan-top">
-          <div>
-            <div class="tiny">PLAN 01</div>
-            <h3>3天2夜 · 2滑</h3>
-          </div>
+    <div class="plan-selector" id="planSelector" role="tablist" aria-label="白馬滑雪方案">
+      <button class="plan-choice active" type="button" data-plan="p1" role="tab" aria-selected="true">
+        <span>3天2夜</span><small>2滑</small>
+      </button>
+      <button class="plan-choice" type="button" data-plan="p2" role="tab" aria-selected="false">
+        <span>4天3夜</span><small>2滑</small>
+      </button>
+      <button class="plan-choice" type="button" data-plan="p25" role="tab" aria-selected="false">
+        <span>4天3夜</span><small>2.5滑</small>
+      </button>
+      <button class="plan-choice" type="button" data-plan="p3" role="tab" aria-selected="false">
+        <span>5天4夜</span><small>3滑</small>
+      </button>
+    </div>
+
+    <div class="plan-detail-shell">
+      <article class="plan-detail active" data-plan-panel="p1">
+        <div class="plan-detail-head">
+          <div><div class="tiny">PLAN 01</div><h3>3天2夜 · 2滑</h3><p>假期不長，也想把兩天完整滑雪塞進去。</p></div>
           <div class="plan-price"><span class="js-price" data-plan-price="p1">NT$29,800</span><small>每人</small></div>
         </div>
-        <p class="plan-desc">假期不長也能完整滑兩天，把交通與住宿時間壓到最精簡。</p>
-        <div class="mini-timeline">
-          <div class="mini-day"><span>DAY 01</span><div><b>抵達白馬・開始第一滑</b><small>抵達後領裝備，依抵達時間安排課程與上雪。</small></div></div>
-          <div class="mini-day"><span>DAY 02</span><div><b>全天滑雪課</b><small>持續練習基本技巧、轉彎與安全控制。</small></div></div>
-          <div class="mini-day"><span>DAY 03</span><div><b>離開白馬</b><small>整理裝備、退房，依自己的交通安排返程。</small></div></div>
+        <div class="compact-days">
+          <div><b>DAY 01</b><span>抵達白馬・領裝備・第一滑</span></div>
+          <div><b>DAY 02</b><span>全天滑雪課</span></div>
+          <div><b>DAY 03</b><span>退房・離開白馬</span></div>
         </div>
       </article>
 
-      <article class="plan-float" data-plan-card="p2">
-        <div class="plan-top">
-          <div>
-            <div class="tiny">PLAN 02</div>
-            <h3>4天3夜 · 2滑</h3>
-          </div>
+      <article class="plan-detail" data-plan-panel="p2" hidden>
+        <div class="plan-detail-head">
+          <div><div class="tiny">PLAN 02</div><h3>4天3夜 · 2滑</h3><p>抵達日不趕，兩天完整滑雪，節奏比較舒服。</p></div>
           <div class="plan-price"><span class="js-price" data-plan-price="p2">NT$33,800</span><small>每人</small></div>
         </div>
-        <p class="plan-desc">多一點移動與休息空間，兩天完整滑雪，不用把抵達日塞得太滿。</p>
-        <div class="mini-timeline">
-          <div class="mini-day"><span>DAY 01</span><div><b>抵達白馬</b><small>入住、領雪具、熟悉住宿與周邊環境。</small></div></div>
-          <div class="mini-day"><span>DAY 02</span><div><b>全天滑雪課</b><small>建立基本動作與雪場安全觀念。</small></div></div>
-          <div class="mini-day"><span>DAY 03</span><div><b>全天滑雪課</b><small>延續練習，把動作做穩、增加滑行時間。</small></div></div>
-          <div class="mini-day"><span>DAY 04</span><div><b>離開白馬</b><small>退房後依自己的日本行程繼續旅行或返程。</small></div></div>
+        <div class="compact-days">
+          <div><b>DAY 01</b><span>抵達白馬・入住・領裝備</span></div>
+          <div><b>DAY 02</b><span>全天滑雪課</span></div>
+          <div><b>DAY 03</b><span>全天滑雪課</span></div>
+          <div><b>DAY 04</b><span>退房・離開白馬</span></div>
         </div>
       </article>
 
-      <article class="plan-float" data-plan-card="p25">
-        <div class="plan-top">
-          <div>
-            <div class="tiny">PLAN 03</div>
-            <h3>4天3夜 · 2.5滑</h3>
-          </div>
+      <article class="plan-detail" data-plan-panel="p25" hidden>
+        <div class="plan-detail-head">
+          <div><div class="tiny">PLAN 03</div><h3>4天3夜 · 2.5滑</h3><p>兩天完整課程，再多半天自己滑、拍照或練習。</p></div>
           <div class="plan-price"><span class="js-price" data-plan-price="p25">NT$36,800</span><small>每人</small></div>
         </div>
-        <p class="plan-desc">兩天完整課程，再多半天滑雪，把已經學會的東西直接拿來自己練。</p>
-        <div class="mini-timeline">
-          <div class="mini-day"><span>DAY 01</span><div><b>抵達白馬</b><small>入住、領雪具、準備隔天上雪。</small></div></div>
-          <div class="mini-day"><span>DAY 02</span><div><b>全天滑雪課</b><small>建立基本技巧與安全控制。</small></div></div>
-          <div class="mini-day"><span>DAY 03</span><div><b>全天滑雪課</b><small>把轉彎、速度控制與滑行穩定度往前推。</small></div></div>
-          <div class="mini-day"><span>DAY 04</span><div><b>半天滑雪</b><small>自由練習、拍照或依當天狀況安排雪場，之後離開白馬。</small></div></div>
+        <div class="compact-days">
+          <div><b>DAY 01</b><span>抵達白馬・入住・領裝備</span></div>
+          <div><b>DAY 02</b><span>全天滑雪課</span></div>
+          <div><b>DAY 03</b><span>全天滑雪課</span></div>
+          <div><b>DAY 04</b><span>半天滑雪・離開白馬</span></div>
         </div>
       </article>
 
-      <article class="plan-float" data-plan-card="p3">
-        <div class="plan-top">
-          <div>
-            <div class="tiny">PLAN 04</div>
-            <h3>5天4夜 · 3滑</h3>
-          </div>
+      <article class="plan-detail" data-plan-panel="p3" hidden>
+        <div class="plan-detail-head">
+          <div><div class="tiny">PLAN 04</div><h3>5天4夜 · 3滑</h3><p>完整三天滑雪，把雪感和白馬生活都留進旅程。</p></div>
           <div class="plan-price"><span class="js-price" data-plan-price="p3">NT$42,800</span><small>每人</small></div>
         </div>
-        <p class="plan-desc">完整三天滑雪，有更多時間累積雪感，也能把白馬的生活節奏一起放進旅程。</p>
-        <div class="mini-timeline">
-          <div class="mini-day"><span>DAY 01</span><div><b>抵達白馬</b><small>入住、領雪具、休息並熟悉周邊。</small></div></div>
-          <div class="mini-day"><span>DAY 02</span><div><b>全天滑雪課</b><small>基本動作、安全控制與第一天練習。</small></div></div>
-          <div class="mini-day"><span>DAY 03</span><div><b>全天滑雪課</b><small>延續技巧，增加滑行距離與穩定度。</small></div></div>
-          <div class="mini-day"><span>DAY 04</span><div><b>全天滑雪</b><small>持續課程或依程度安排更多練習與雪場體驗。</small></div></div>
-          <div class="mini-day"><span>DAY 05</span><div><b>離開白馬</b><small>退房、整理裝備，接續自己的日本行程。</small></div></div>
+        <div class="compact-days">
+          <div><b>DAY 01</b><span>抵達白馬・入住・領裝備</span></div>
+          <div><b>DAY 02</b><span>全天滑雪課</span></div>
+          <div><b>DAY 03</b><span>全天滑雪課</span></div>
+          <div><b>DAY 04</b><span>全天滑雪／依程度安排</span></div>
+          <div><b>DAY 05</b><span>退房・離開白馬</span></div>
         </div>
       </article>
     </div>
 
-    <div class="plan-footnote">實際上課時段、雪場與每日安排會依天候、雪況、交通及當團狀況調整。</div>
+    <div class="plan-footnote">實際雪場、課程與每日接駁會依雪況、天氣、交通與同行者程度調整。</div>
   </div>
 </section>
 
@@ -452,5 +480,22 @@ document.querySelectorAll('#peopleSeg .tab').forEach(b=>b.onclick=()=>{
 renderPlanPrices();
 const prepBoxes=[...document.querySelectorAll('[data-prep]')];function updatePrep(){let done=0;prepBoxes.forEach(x=>{x.checked=localStorage.getItem('hakuba-prep-'+x.dataset.prep)==='1';if(x.checked)done++});document.getElementById('doneCount').textContent=done;document.getElementById('totalCount').textContent=prepBoxes.length;document.getElementById('prepProgress').style.width=(prepBoxes.length?done/prepBoxes.length*100:0)+'%'}prepBoxes.forEach(x=>x.addEventListener('change',()=>{localStorage.setItem('hakuba-prep-'+x.dataset.prep,x.checked?'1':'0');updatePrep()}));document.getElementById('resetChecklist').onclick=()=>{prepBoxes.forEach(x=>localStorage.removeItem('hakuba-prep-'+x.dataset.prep));updatePrep()};updatePrep();
 function openReg(){document.getElementById('regModal').classList.add('show')}function closeReg(){document.getElementById('regModal').classList.remove('show')}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeReg()});
+
+document.querySelectorAll('.plan-choice').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const key=btn.dataset.plan;
+    document.querySelectorAll('.plan-choice').forEach(b=>{
+      const on=b===btn;
+      b.classList.toggle('active',on);
+      b.setAttribute('aria-selected',on?'true':'false');
+    });
+    document.querySelectorAll('[data-plan-panel]').forEach(panel=>{
+      const on=panel.dataset.planPanel===key;
+      panel.hidden=!on;
+      panel.classList.toggle('active',on);
+    });
+  });
+});
+
 </script>
 </body></html>
